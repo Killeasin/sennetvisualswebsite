@@ -111,5 +111,11 @@ describe('Images Store', () => {
 			expect(collections[0].id).toEqual('kuku');
 			expect(collections[0].name).toEqual('Kuku');
 		});
+
+		it('should restore collection names from existing gallery YAML entries', async () => {
+			const collections = await getCollections('src/gallery/gallery.yaml');
+			const graduationCollection = collections.find((collection) => collection.id === 'graduation');
+			expect(graduationCollection?.name).toEqual('Graduation');
+		});
 	});
 });

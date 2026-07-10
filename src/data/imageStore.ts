@@ -146,7 +146,7 @@ function mergeGalleryDataWithDiscoveredImages(gallery: GalleryData, galleryPath:
 
 	const mergedCollections = new Map<string, Collection>();
 	for (const collection of gallery.collections) {
-		mergedCollections.set(collection.id, collection);
+		mergedCollections.set(collection.id, normalizeCollection(collection));
 	}
 	for (const image of mergedImages.values()) {
 		for (const collectionId of image.meta.collections ?? []) {
@@ -239,6 +239,13 @@ function inferCollectionsFromPath(imagePath: string): string[] {
 		return [];
 	}
 	return segments.slice(0, -1);
+}
+
+function normalizeCollection(collection: Collection): Collection {
+	return {
+		...collection,
+		name: collection.name || (collection as Collection & { title?: string }).title || toCollectionName(collection.id),
+	};
 }
 
 function toCollectionName(collectionId: string): string {

@@ -1,6 +1,5 @@
 const modal = document.getElementById('image-modal');
 const modalImage = document.getElementById('modal-image') as HTMLImageElement | null;
-const closeButton = document.getElementById('close-image-modal');
 const backdrop = document.getElementById('modal-backdrop');
 const triggers = Array.from(document.querySelectorAll('[data-image-src]')) as HTMLButtonElement[];
 
@@ -30,7 +29,6 @@ triggers.forEach((trigger) => {
   });
 });
 
-closeButton?.addEventListener('click', closeModal);
 backdrop?.addEventListener('click', closeModal);
 modal?.addEventListener('click', (event) => {
   if (event.target === modal) closeModal();
