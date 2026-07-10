@@ -25,13 +25,33 @@ const base = import.meta.env.BASE_URL;
 		<meta name="generator" content={Astro.generator} />
 		<title>{owner}</title>
 	</head>
-	<body>
-		<NavBar />
-		<main>
-			<slot />
-		</main>
-		<Footer />
-	</body>
+	<body class="h-full overflow-hidden">
+        <div class="flex h-screen w-screen bg-[#faf9f6]">
+            
+            <!-- LEFT PANEL: Fixed Sidebar Navigation -->
+            <aside class="w-72 h-screen bg-white border-r border-gray-100 flex flex-col justify-between p-10 shrink-0">
+                <div>
+                    <!-- Brand Identity Header -->
+                    <div class="mb-12">
+                        <h1 class="text-2xl font-bold tracking-tight text-gray-900">Sennet Visuals</h1>
+                        <p class="text-xs text-gray-400 italic mt-1">Where Vision Meets Penn State</p>
+                    </div>
+                    
+                    <!-- Native NavBar imports here -->
+                    <NavBar /> 
+                </div>
+                
+                <Footer />
+            </aside>
+
+            <!-- RIGHT PANEL: Scrollable Canvas Frame for Photos -->
+            <main class="flex-1 h-screen overflow-y-auto px-16 py-12">
+                <!-- The native page content injects here automatically -->
+                <slot /> 
+            </main>
+            
+        </div>
+    </body>
 </html>
 
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>

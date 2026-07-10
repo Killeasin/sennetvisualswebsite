@@ -8,20 +8,20 @@ export interface SocialLink {
 }
 
 export default {
-	title: 'SR',
+	title: 'Sennet Visuals',
 	favicon: 'favicon.ico',
-	owner: 'Sara Richard',
+	owner: 'Sennet',
 	profileImage: 'profile.webp',
 	socialLinks: [
-		{
-			name: 'GitHub',
-			url: 'https://github.com/rockem/astro-photography-portfolio',
-			icon: Github,
-		} as SocialLink,
-		{
-			name: 'Instagram',
-			url: 'https://www.instagram.com',
-			icon: Instagram,
-		} as SocialLink,
-	],
+        {
+            name: 'GitHub',
+            url: 'https://github.com/Killeasin',
+            icon: Github,
+        } as SocialLink,
+        {
+            name: 'Instagram',
+            url: 'https://www.instagram.com/sennetvisuals',
+            icon: Instagram,
+        } as SocialLink,
+    ],
 };
