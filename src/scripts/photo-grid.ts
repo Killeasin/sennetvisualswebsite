@@ -1,6 +1,3 @@
-import justifiedLayout from 'justified-layout';
-import GLightbox from 'glightbox';
-
 interface JustifiedLayoutResult {
 	/**
 	 * Height of the container containing the justified layout.

@@ -5,26 +5,22 @@ import { getCollections, getImages } from '../../data/imageStore.ts';
 
 export async function getStaticPaths() {
     const collections = await getCollections();
-    return collections.map((col) => ({
+    return collections.map((col: any) => ({
         params: { collection: col.id },
-        props: { collectionName: col.title, collectionId: col.id },
+        props: { collectionName: col.id },
     }));
 }
 
-const { collectionName, collectionId } = Astro.props;
-const images = await getImages({ collection: collectionId });
+const { collection } = Astro.params;
+const { collectionName } = Astro.props;
+const images = await getImages({ collection });
 ---
 
 <MainLayout>
-    <div class="mb-8">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900">{collectionName}</h2>
-        <div class="h-1 w-12 bg-black mt-2"></div>
-    </div>
-
-    {images.length === 0 || (images.length === 1 && images[0].title === "Coming Soon") ? (
+    {images.length === 0 || (images.length === 1 && (images[0] as any).id === "Coming Soon") ? (
         <div class="flex flex-col items-center justify-center py-24 text-gray-400 border border-dashed border-gray-200 rounded-lg bg-white/50">
             <p class="text-sm italic">Gallery is currently being curated.</p>
-            <p class="text-xs mt-1">Drop images into src/gallery/{collectionId}/ to showcase work!</p>
+            <p class="text-xs mt-1">Drop images into src/gallery/{collection}/ to showcase work!</p>
         </div>
     ) : (
         <PhotoGrid images={images} />

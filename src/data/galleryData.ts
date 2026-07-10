@@ -76,7 +76,7 @@ export interface ImageExif {
  * @property {string[]} collections - Array of collection IDs the image belongs to
  */
 export interface Image {
-	src: ImageMetadata;
+	src: string;
 	title: string;
 	description: string;
 	collections: string[];

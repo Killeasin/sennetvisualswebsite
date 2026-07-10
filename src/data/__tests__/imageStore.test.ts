@@ -2,13 +2,14 @@ import { describe, expect, it } from 'vitest';
 import kukuTrees from './gallery/kuku/kuku-trees.jpg';
 import popoView from './gallery/popo/popo-view.jpg';
 import landscape from './gallery/landscape.jpg';
-import { getCollections, getImages, ImageStoreError } from '../imageStore.ts';
+import { getCollections, getImages, ImageStoreError, normalizeImagePath } from '../imageStore.ts';
 
 const GALLERY = {
 	VALID: 'src/data/__tests__/gallery/valid-gallery.yaml',
 	INVALID: 'src/data/__tests__/gallery/invalid-gallery.yaml',
 	MISSING: 'src/data/__tests__/gallery/no-gallery.yaml',
 	INVALID_COLLECTION: 'src/data/__tests__/gallery/invalid-collection-gallery.yaml',
+	INFERRED_COLLECTIONS: 'src/data/__tests__/gallery/inferred-collections-gallery.yaml',
 };
 
 describe('Images Store', () => {
@@ -33,6 +34,18 @@ describe('Images Store', () => {
 			expect(images).toHaveLength(1);
 			expect(images[0].title).toEqual('Popo View');
 			expect(images[0].description).toContain('popo album');
+		});
+
+		it('should normalize backslashes in image paths', () => {
+			expect(normalizeImagePath('src\\gallery\\graduation\\photo.jpg')).toEqual(
+				'src/gallery/graduation/photo.jpg',
+			);
+		});
+
+		it('should infer collections from image folders when metadata is empty', async () => {
+			const images = await getImages({ galleryPath: GALLERY.INFERRED_COLLECTIONS });
+			expect(images).toHaveLength(1);
+			expect(images[0].collections).toContain('kuku');
 		});
 
 		describe('Failures', () => {
@@ -90,6 +103,13 @@ describe('Images Store', () => {
 			expect(collections[0].name).toEqual('Kuku');
 			expect(collections[1].id).toEqual('popo');
 			expect(collections[1].name).toEqual('Popo');
+		});
+
+		it('should infer collection pages from image folders when YAML omits them', async () => {
+			const collections = await getCollections(GALLERY.INFERRED_COLLECTIONS);
+			expect(collections).toHaveLength(1);
+			expect(collections[0].id).toEqual('kuku');
+			expect(collections[0].name).toEqual('Kuku');
 		});
 	});
 });
