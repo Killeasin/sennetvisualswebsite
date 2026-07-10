@@ -1,54 +1,192 @@
 collections:
+  - title: Graduation
+    id: graduation
+    description: Penn State Graduation Portraits & Cap/Gown Celebrations
+  - title: Studio
+    id: studio
+    description: Studio portraits and stylized studio lighting shoots
+  - title: Portraits
+    id: portraits
+    description: Individual outdoor portraits and headshots
+  - title: Groups
+    id: groups
+    description: Fraternity, sorority, and friend group milestone sessions
+  - title: Executive Boards
+    id: boards
+    description: Professional executive board rosters for campus organizations
   - id: nature
     name: Nature
-  - id: travel
-    name: Travel
   - id: street
     name: Street
+  - id: travel
+    name: Travel
 images:
-  - path: nature/nature-2.jpg
+  - path: graduation/sennetVisualsMercy-10_2.jpg
     meta:
-      title: Nature scene 2
-      description: Serene natural landscape capturing the essence of wilderness.
+      title: Sennetvisualsmercy 10 2
+      description: ''
       collections:
-        - nature
+        - graduation
     exif: {}
-  - path: nature/nature-3.jpg
+  - path: graduation/sennetVisualsMercy-11_2.jpg
     meta:
-      title: Nature scene 3
-      description: Breathtaking natural vista showcasing environmental beauty.
+      title: Sennetvisualsmercy 11 2
+      description: ''
       collections:
-        - featured
-        - nature
+        - graduation
     exif: {}
-  - path: nature/nature-5.jpg
+  - path: graduation/sennetVisualsMercy-12_2.jpg
     meta:
-      title: Nature scene 5
-      description: Natural landscape showing the raw beauty of the environment.
+      title: Sennetvisualsmercy 12 2
+      description: ''
       collections:
-        - nature
+        - graduation
     exif: {}
-  - path: nature/nature-7.jpg
+  - path: graduation/sennetVisualsMercy-13_2.jpg
     meta:
-      title: Nature scene 7
-      description: Stunning natural landscape capturing environmental beauty.
+      title: Sennetvisualsmercy 13 2
+      description: ''
       collections:
-        - featured
-        - nature
+        - graduation
     exif: {}
-  - path: nature/nature-8.jpg
+  - path: graduation/sennetVisualsMercy-14_2.jpg
     meta:
-      title: Nature scene 8
-      description: Beautiful natural vista showcasing environmental wonder.
+      title: Sennetvisualsmercy 14 2
+      description: ''
       collections:
-        - nature
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-15_2.jpg
+    meta:
+      title: Sennetvisualsmercy 15 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-16_2.jpg
+    meta:
+      title: Sennetvisualsmercy 16 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-17_2.jpg
+    meta:
+      title: Sennetvisualsmercy 17 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-18_2.jpg
+    meta:
+      title: Sennetvisualsmercy 18 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-19_2.jpg
+    meta:
+      title: Sennetvisualsmercy 19 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-1_2.jpg
+    meta:
+      title: Sennetvisualsmercy 1 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-20_2.jpg
+    meta:
+      title: Sennetvisualsmercy 20 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-21_2.jpg
+    meta:
+      title: Sennetvisualsmercy 21 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-22_2.jpg
+    meta:
+      title: Sennetvisualsmercy 22 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-23_2.jpg
+    meta:
+      title: Sennetvisualsmercy 23 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-2_2.jpg
+    meta:
+      title: Sennetvisualsmercy 2 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-3_2.jpg
+    meta:
+      title: Sennetvisualsmercy 3 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-4_2.jpg
+    meta:
+      title: Sennetvisualsmercy 4 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-5_2.jpg
+    meta:
+      title: Sennetvisualsmercy 5 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-6_2.jpg
+    meta:
+      title: Sennetvisualsmercy 6 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-7_2.jpg
+    meta:
+      title: Sennetvisualsmercy 7 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-8_2.jpg
+    meta:
+      title: Sennetvisualsmercy 8 2
+      description: ''
+      collections:
+        - graduation
+    exif: {}
+  - path: graduation/sennetVisualsMercy-9_2.jpg
+    meta:
+      title: Sennetvisualsmercy 9 2
+      description: ''
+      collections:
+        - graduation
     exif: {}
   - path: nature/L1002174.jpg
     meta:
-      title: Travel scene 6
-      description: null
+      title: L1002174
+      description: ''
       collections:
-        - featured
         - nature
     exif:
       captureDate: 2025-03-27T10:35:21.000Z
@@ -58,33 +196,66 @@ images:
       model: LEICA Q3
       shutterSpeed: 1250
       lensModel: SUMMILUX 1:1.7/28 ASPH.
-  - path: nature/nature-10.jpg
-    meta:
-      title: Nature scene 10
-      description: Majestic natural landscape displaying environmental splendor.
-      collections:
-        - nature
-    exif: {}
-  - path: street/stree-1.jpg
-    meta:
-      title: Street photography 1
-      description: Urban scene capturing the essence of city life.
-      collections:
-        - featured
-        - street
-    exif: {}
-  - path: travel/travel-1.jpg
-    meta:
-      title: Travel scene 1
-      description: Journey through remarkable destinations.
-      collections:
-        - featured
-        - travel
-    exif: {}
   - path: nature/nature-1.jpg
     meta:
       title: Nature 1
       description: ''
       collections:
         - nature
+    exif: {}
+  - path: nature/nature-10.jpg
+    meta:
+      title: Nature 10
+      description: ''
+      collections:
+        - nature
+    exif: {}
+  - path: nature/nature-2.jpg
+    meta:
+      title: Nature 2
+      description: ''
+      collections:
+        - nature
+    exif: {}
+  - path: nature/nature-3.jpg
+    meta:
+      title: Nature 3
+      description: ''
+      collections:
+        - nature
+    exif: {}
+  - path: nature/nature-5.jpg
+    meta:
+      title: Nature 5
+      description: ''
+      collections:
+        - nature
+    exif: {}
+  - path: nature/nature-7.jpg
+    meta:
+      title: Nature 7
+      description: ''
+      collections:
+        - nature
+    exif: {}
+  - path: nature/nature-8.jpg
+    meta:
+      title: Nature 8
+      description: ''
+      collections:
+        - nature
+    exif: {}
+  - path: street/stree-1.jpg
+    meta:
+      title: Stree 1
+      description: ''
+      collections:
+        - street
+    exif: {}
+  - path: travel/travel-1.jpg
+    meta:
+      title: Travel 1
+      description: ''
+      collections:
+        - travel
     exif: {}

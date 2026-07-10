@@ -1,55 +1,32 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import PhotoGrid from '../../components/PhotoGrid.astro';
-import { getCollections, getImages } from '../../data/imageStore';
+import { getCollections, getImages } from '../../data/imageStore.ts';
 
-const allCollection = {
-	id: undefined,
-	name: 'All',
-};
-const collections = [allCollection, ...(await getCollections())];
-const { collection } = Astro.params;
-const images = await getImages(collection ? { collection } : {});
-const base = import.meta.env.BASE_URL;
+export async function getStaticPaths() {
+    const collections = await getCollections();
+    return collections.map((col) => ({
+        params: { collection: col.id },
+        props: { collectionName: col.title, collectionId: col.id },
+    }));
+}
 
-export const getStaticPaths = async () => {
-	return [{ id: undefined }, ...(await getCollections())].map((collection) => {
-		return {
-			params: { collection: collection.id },
-		};
-	});
-};
+const { collectionName, collectionId } = Astro.props;
+const images = await getImages({ collection: collectionId });
 ---
 
 <MainLayout>
-	<section class="py-16 pt-24">
-		<div class="container-custom">
-			<div class="mb-16 text-center">
-				<h1 class="text-4xl md:text-5xl font-bold mb-4">Gallery</h1>
-				<p class="text-gray-600 max-w-xl mx-auto">Explore my collection of photographic works</p>
-			</div>
+    <div class="mb-8">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900">{collectionName}</h2>
+        <div class="h-1 w-12 bg-black mt-2"></div>
+    </div>
 
-			<div class="flex justify-center mb-10">
-				<div class="flex flex-wrap gap-2 justify-center">
-					{
-						collections.map((collectionBtn) => (
-							<a href={`${base}/collections/${collectionBtn.id ? collectionBtn.id : ''}`}>
-								<div
-									class={`px-4 py-2 border ${
-										collectionBtn.id === collection
-											? 'border-black bg-black text-white'
-											: 'border-gray-200 text-gray-700 hover:border-gray-300'
-									} transition-all`}
-								>
-									{collectionBtn.name}
-								</div>
-							</a>
-						))
-					}
-				</div>
-			</div>
-
-			<PhotoGrid images={images} />
-		</div>
-	</section>
+    {images.length === 0 || (images.length === 1 && images[0].title === "Coming Soon") ? (
+        <div class="flex flex-col items-center justify-center py-24 text-gray-400 border border-dashed border-gray-200 rounded-lg bg-white/50">
+            <p class="text-sm italic">Gallery is currently being curated.</p>
+            <p class="text-xs mt-1">Drop images into src/gallery/{collectionId}/ to showcase work!</p>
+        </div>
+    ) : (
+        <PhotoGrid images={images} />
+    )}
 </MainLayout>
