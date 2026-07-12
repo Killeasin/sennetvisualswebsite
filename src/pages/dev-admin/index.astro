@@ -1,0 +1,40 @@
+---
+import { ensureCollectionsSeed, listCollections, listPhotos, getAnalyticsSummary } from '../../lib/admin.ts';
+await ensureCollectionsSeed();
+const photos = await listPhotos();
+const collections = await listCollections();
+const analytics = await getAnalyticsSummary();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard</title>
+  </head>
+  <body class="bg-[#faf9f6] p-8 text-slate-800">
+    <div class="mx-auto max-w-6xl">
+      <h1 class="text-2xl font-semibold">Admin Dashboard</h1>
+      <p class="mt-2 text-sm text-slate-600">Local photo and collection management.</p>
+      <div class="mt-6 grid gap-6 lg:grid-cols-2">
+        <section class="rounded-2xl border border-slate-200 bg-white p-6">
+          <h2 class="text-lg font-medium">Collections</h2>
+          <ul class="mt-4 space-y-2">
+            {collections.map((collection) => <li class="rounded-lg border border-slate-200 px-3 py-2">{collection.name}</li>)}
+          </ul>
+        </section>
+        <section class="rounded-2xl border border-slate-200 bg-white p-6">
+          <h2 class="text-lg font-medium">Photos</h2>
+          <p class="mt-2 text-sm text-slate-600">Stored locally: {photos.length}</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {photos.map((photo) => <span class="rounded-full bg-slate-100 px-3 py-1 text-sm">{photo.title}</span>)}
+          </div>
+        </section>
+      </div>
+      <section class="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-lg font-medium">Analytics</h2>
+        <p class="mt-2 text-sm text-slate-600">Events: {analytics.totalEvents}</p>
+      </section>
+    </div>
+  </body>
+</html>

@@ -7,6 +7,7 @@ import {
 	type ImageModule,
 	loadGallery,
 } from './galleryData.ts';
+import { ensureCollectionsSeed, getDbCollections, getDbPhotosForGallery } from '../lib/admin.ts';
 
 /**
  * Error class for image-related errors
@@ -99,8 +100,9 @@ function getErrorMsgFrom(error: unknown) {
  */
 const loadGalleryData = async (galleryPath: string): Promise<GalleryData> => {
 	try {
+		await ensureCollectionsSeed();
 		const gallery = await loadGallery(galleryPath);
-		const mergedGallery = mergeGalleryDataWithDiscoveredImages(gallery, galleryPath);
+		const mergedGallery = await mergeGalleryDataWithDiscoveredImages(gallery, galleryPath);
 		validateGalleryData(mergedGallery);
 		return mergedGallery;
 	} catch (error) {
@@ -110,8 +112,12 @@ const loadGalleryData = async (galleryPath: string): Promise<GalleryData> => {
 	}
 };
 
-function mergeGalleryDataWithDiscoveredImages(gallery: GalleryData, galleryPath: string): GalleryData {
+async function mergeGalleryDataWithDiscoveredImages(
+	gallery: GalleryData,
+	galleryPath: string,
+): Promise<GalleryData> {
 	const discoveredImages = discoverImagesFromGalleryDirectory(galleryPath);
+	const dbPhotos = await getDbPhotosForGallery();
 	const mergedImages = new Map<string, GalleryImage>();
 
 	for (const image of gallery.images) {
@@ -144,9 +150,43 @@ function mergeGalleryDataWithDiscoveredImages(gallery: GalleryData, galleryPath:
 		}
 	}
 
+	for (const dbPhoto of dbPhotos) {
+		const dbImagePath = normalizeImagePath(dbPhoto.path);
+		const existingImage = mergedImages.get(dbImagePath);
+		const dbImage: GalleryImage = {
+			path: dbImagePath,
+			src: dbPhoto.path,
+			meta: {
+				title: dbPhoto.title || 'Uploaded photo',
+				description: dbPhoto.description || '',
+				collections: dbPhoto.collectionId ? [dbPhoto.collectionId] : [],
+			},
+			exif: {},
+		};
+		if (existingImage) {
+			mergedImages.set(dbImagePath, {
+				...existingImage,
+				meta: {
+					...existingImage.meta,
+					title: existingImage.meta.title || dbImage.meta.title,
+					description: existingImage.meta.description || dbImage.meta.description,
+					collections: Array.from(
+						new Set([...(existingImage.meta.collections ?? []), ...(dbImage.meta.collections ?? [])]),
+					),
+				},
+				src: existingImage.src || dbImage.src,
+			});
+		} else {
+			mergedImages.set(dbImagePath, dbImage);
+		}
+	}
+
 	const mergedCollections = new Map<string, Collection>();
 	for (const collection of gallery.collections) {
 		mergedCollections.set(collection.id, normalizeCollection(collection));
+	}
+	for (const dbCollection of await getDbCollections()) {
+		mergedCollections.set(dbCollection.id, normalizeCollection(dbCollection));
 	}
 	for (const image of mergedImages.values()) {
 		for (const collectionId of image.meta.collections ?? []) {
@@ -297,6 +337,15 @@ const processImages = (images: GalleryImage[], galleryPath: string): Image[] => 
  * @throws {ImageStoreError} If image module cannot be found
  */
 const createImageDataFor = (galleryPath: string, img: GalleryImage): Image => {
+	if (img.src) {
+		return {
+			src: img.src,
+			title: img.meta.title,
+			description: img.meta.description,
+			collections: img.meta.collections,
+		};
+	}
+
 	const imagePath = normalizeImagePath(path.posix.join('/', path.parse(galleryPath).dir, img.path));
 	const imageModule = getImageModuleCandidates(galleryPath, img.path).reduce<ImageModule | undefined>(
 		(acc, candidate) => acc ?? (imageModules[candidate] as ImageModule | undefined),

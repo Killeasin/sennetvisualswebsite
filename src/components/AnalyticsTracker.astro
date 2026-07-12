@@ -1,0 +1,23 @@
+---
+const analyticsEndpoint = '/api/analytics/track';
+---
+
+<script>
+  const track = async (eventType = 'view', page = window.location.pathname, details = {}) => {
+    try {
+      await fetch('/api/analytics/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ eventType, page, details }),
+      });
+    } catch (error) {
+      console.warn('Analytics tracking failed', error);
+    }
+  };
+
+  window.addEventListener('load', () => track('view', window.location.pathname, { referrer: document.referrer }));
+  document.addEventListener('click', (event) => {
+    const target = event.target instanceof HTMLElement ? event.target.closest('a, button') : null;
+    if (target) track('click', window.location.pathname, { target: target.tagName.toLowerCase() });
+  });
+</script>

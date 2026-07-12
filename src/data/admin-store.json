@@ -1,0 +1,142 @@
+{
+  "collections": [
+    {
+      "id": "graduation",
+      "name": "Graduation",
+      "displayOrder": 1,
+      "createdAt": "2026-07-12T02:23:23.094Z"
+    },
+    {
+      "id": "studio",
+      "name": "Studio",
+      "displayOrder": 2,
+      "createdAt": "2026-07-12T02:23:23.094Z"
+    },
+    {
+      "id": "portraits",
+      "name": "Portraits",
+      "displayOrder": 3,
+      "createdAt": "2026-07-12T02:23:23.094Z"
+    },
+    {
+      "id": "groups",
+      "name": "Groups",
+      "displayOrder": 4,
+      "createdAt": "2026-07-12T02:23:23.094Z"
+    },
+    {
+      "id": "boards",
+      "name": "Boards",
+      "displayOrder": 5,
+      "createdAt": "2026-07-12T02:23:23.094Z"
+    }
+  ],
+  "photos": [],
+  "analytics": [
+    {
+      "id": 1783825857238,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T03:10:57.238Z"
+    },
+    {
+      "id": 1783825856790,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T03:10:56.790Z"
+    },
+    {
+      "id": 1783825208936,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T03:00:08.936Z"
+    },
+    {
+      "id": 1783825204856,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T03:00:04.856Z"
+    },
+    {
+      "id": 1783825202941,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T03:00:02.941Z"
+    },
+    {
+      "id": 1783825202882,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T03:00:02.882Z"
+    },
+    {
+      "id": 1783825200289,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T03:00:00.289Z"
+    },
+    {
+      "id": 1783825198007,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T02:59:58.007Z"
+    },
+    {
+      "id": 1783825195769,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T02:59:55.769Z"
+    },
+    {
+      "id": 1783824418151,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T02:46:58.151Z"
+    },
+    {
+      "id": 1783824396466,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T02:46:36.466Z"
+    },
+    {
+      "id": 1783823568177,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T02:32:48.177Z"
+    },
+    {
+      "id": 1783823567742,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T02:32:47.742Z"
+    },
+    {
+      "id": 1783823534349,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T02:32:14.349Z"
+    },
+    {
+      "id": 1783823004166,
+      "eventType": "view",
+      "page": "unknown",
+      "details": "{}",
+      "createdAt": "2026-07-12T02:23:24.166Z"
+    }
+  ]
+}

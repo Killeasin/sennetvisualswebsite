@@ -1,0 +1,163 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd install @astrojs/node --save --no-fund --no-audit --yes",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Move admin routes out of Astro pages",
+			"type": "shell",
+			"command": "if exist src\\pages\\admin move src\\pages\\admin src\\pages\\_admin && if exist src\\pages\\api\\admin move src\\pages\\api\\admin src\\pages\\api\\_admin && npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Move admin routes out of Astro pages",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"if (Test-Path 'src/pages/admin') { Move-Item -Force 'src/pages/admin' 'src/pages/_admin' }; if (Test-Path 'src/pages/api/admin') { Move-Item -Force 'src/pages/api/admin' 'src/pages/api/_admin' }; npm.cmd run build\"",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Move admin pages out of Astro route discovery",
+			"type": "shell",
+			"command": "cmd.exe /d /c \"cd /d c:\\mainFolder\\codeSoftware\\githubdesktop\\sennetvisualswebsite && if exist src\\pages\\admin move /Y src\\pages\\admin src\\pages\\_admin && if exist src\\pages\\api\\admin move /Y src\\pages\\api\\admin src\\pages\\api\\_admin\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Remove admin route folder",
+			"type": "shell",
+			"command": "powershell -NoProfile -Command \"Set-Location 'c:\\mainFolder\\codeSoftware\\githubdesktop\\sennetvisualswebsite'; if (Test-Path 'src/pages/admin') { Remove-Item -Recurse -Force 'src/pages/admin' }; if (Test-Path 'src/pages/api/admin') { Remove-Item -Recurse -Force 'src/pages/api/admin' }\"",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build site",
+			"type": "shell",
+			"command": "npm.cmd run build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		}
+	]
+}
